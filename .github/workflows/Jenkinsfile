@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+
+    environment {
+        // Define any environment variables here
+        MY_ENV_VAR = 'value'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                // Commands to build your project
+                sh './gradlew assemble'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Commands to run tests
+                sh './gradlew test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Commands to deploy your application
+                echo 'Deploying...'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Actions to perform after all stages, like cleanup
+            echo 'Pipeline completed.'
+        }
+        success {
+            // Actions to perform if the pipeline succeeds
+            echo 'Pipeline succeeded.'
+        }
+        failure {
+            // Actions to perform if the pipeline fails
+            echo 'Pipeline failed.'
+        }
+    }
+}
