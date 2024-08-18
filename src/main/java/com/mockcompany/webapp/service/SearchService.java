@@ -5,6 +5,7 @@ import com.mockcompany.webapp.model.ProductItem;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collection;
+import java.util.Collections;
 
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.stereotype.Service;
